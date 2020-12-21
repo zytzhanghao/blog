@@ -1,16 +1,34 @@
 {
-  "name": "my_blog",
+  "name": "blog",
   "version": "1.0.0",
-  "description": "zyt",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zytzhanghao/blog.git"
+  },
+  "author": "zyt",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zytzhanghao/blog/issues"
+  },
+  "homepage": "https://github.com/zytzhanghao/blog#readme",
   "dependencies": {
+    "config-lite": "^3.0.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.2.0",
     "ejs": "^3.1.5",
-    "express": "^4.14.0",
-    "supervisor": "^0.12.0"
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-winston": "^4.0.5",
+    "marked": "^1.2.7",
+    "moment": "^2.29.1",
+    "mongolass": "^4.4.7",
+    "objectid-to-timestamp": "^1.3.0",
+    "sha1": "^1.1.1",
+    "winston": "^3.3.3"
   }
 }
