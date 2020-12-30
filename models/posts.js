@@ -104,5 +104,5 @@ delPostById: function delPostById (postId, author) {
         return CommentModel.delCommentsByPostId(postId)
       }
     })
-}
+  }
 }
