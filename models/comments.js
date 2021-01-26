@@ -43,6 +43,18 @@ module.exports = {
       .exec()
   },
 
+   // 通过文章 id 获取该文章下所有留言，按留言创建时间逆序
+   getCommentsRes: function getComments (postId) {
+    return Comment
+      .find({ postId: postId })
+      .populate({ path: 'author', model: 'User' })
+      .sort({ _id: -1 })
+      .addCreatedAt()
+      .contentToHtml()
+      .exec()
+  },
+
+
   // 通过文章 id 获取该文章下留言数
   getCommentsCount: function getCommentsCount (postId) {
     return Comment.count({ postId: postId }).exec()

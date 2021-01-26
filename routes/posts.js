@@ -83,6 +83,32 @@ router.get('/:postId', function (req, res, next) {
     .catch(next)
 })
 
+// GET /posts/:postId/Reverse 单独一篇的逆序留言文章页
+router.get('/:postId/Reverse', function (req, res, next) {
+  const postId = req.params.postId
+
+  Promise.all([
+    PostModel.getPostById(postId), // 获取文章信息
+    CommentModel.getCommentsRes(postId), // 获取该文章所有留言
+    PostModel.incPv(postId)// pv 加 1
+  ])
+    .then(function (result) {
+      const post = result[0]
+      const comments = result[1]
+      if (!post) {
+        throw new Error('该文章不存在')
+      }
+
+      res.render('post', {
+        post: post,
+        comments: comments
+      })
+    })
+    .catch(next)
+})
+
+
+
 // GET /posts/:postId/edit 更新文章页
 router.get('/:postId/edit', checkLogin, function (req, res, next) {
   const postId = req.params.postId
